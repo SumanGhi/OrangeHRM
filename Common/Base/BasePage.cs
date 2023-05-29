@@ -28,7 +28,7 @@ namespace Base
         }
         public IWebElement WaitUntilElementIsVisible(string Identifier)
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             return waitElement.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath(Identifier)));
         }
         // This can be used to fill the form 

@@ -7,13 +7,16 @@ namespace Tests
     [TestFixture, Order(1)]
     internal class RecruitmentTest : BaseSetup
     {
-        [Test,Order(0)]
+        [Test, Order(0)]
         public void AddNewCandidate()
         {
             MenuPage menu = new();
             menu.OpenRecruitment()
+                .OpenCandidates()
                 .AddCandidate("Suman", "Ghimire", "ghimiresuman409@gmail.com");
+
             menu.OpenRecruitment()
+                .OpenCandidates()
                 .AddCandidate("Test1", "test1", "test1@gmail.com");
         }
         [Test,Order(1)]
@@ -30,10 +33,11 @@ namespace Tests
             MenuPage menu = new();
             menu.OpenRecruitment()
                 .OpenVacancies()
-                .AddVacancies("QA manager", "PKtesting06 PKtesting06 p");
+                .AddVacancies("QA manager");
+
             menu.OpenRecruitment()
                 .OpenVacancies()
-                .AddVacancies("Automation Engineer", "PKtesting06 PKtesting06 p");
+                .AddVacancies("Automation Engineer");
         }
         [Test,Order(3)]
         public void SearchVacancies()

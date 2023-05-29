@@ -15,7 +15,7 @@ namespace AdminPage
             Candidates.Click();
             return new RecruitmentPage();
         }
-        public void AddCandidate(string fname,string lname, string email)
+        public RecruitmentVerify AddCandidate(string fname,string lname, string email)
         {
             AddBtn.Click();
             
@@ -26,30 +26,38 @@ namespace AdminPage
             SelectVacancy.Click();
             Add(inputElements, inputValues);
             SaveBtn.Click();
+            return new();
         }
-        public void SearchCandidate()
+        public RecruitmentVerify SearchCandidate()
         {
             VacancyDropdown.Click();
             SelectVacancy.Click();
-            CandidateName.SendKeys("Test Test");
+            CandidateName.SendKeys("Suman");
+            Thread.Sleep(1000);
+            CandidateName.SendKeys(Keys.ArrowDown + Keys.Enter);
             Search.Click();
+            return new();
 
         }
-        public void AddVacancies(string vname, string hmanager)
+        public RecruitmentVerify AddVacancies(string vname)
         {
             AddBtn.Click();
             VacancyName.SendKeys(vname);
             JobTitle.Click();
-            SelectJob.Click();
-            HiringManager.SendKeys(hmanager+Keys.ArrowDown+Keys.Enter);
-
+            JobTitle.SendKeys(Keys.ArrowDown+Keys.Enter);
+            HiringManager.SendKeys("test");
+            Thread.Sleep(1000);
+            HiringManager.SendKeys(Keys.ArrowDown + Keys.Enter);
             SaveBtn.Submit();
+            return new();
+
         }
-        public void SearchVacancies()
+        public RecruitmentVerify SearchVacancies()
         {
             VacancyDropdown.Click();
             SelectVacancy.Click();
             Search.Click();
+            return new();
 
         }
     }
